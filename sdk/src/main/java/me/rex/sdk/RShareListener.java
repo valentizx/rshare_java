@@ -1,0 +1,8 @@
+package me.rex.sdk;
+
+public interface RShareListener {
+
+    public abstract void onComplete(RSharePlatform.Platform platform);
+    public abstract void onFail(RSharePlatform.Platform platform, String errorInfo);
+    public abstract void onCancel(RSharePlatform.Platform platform);
+}

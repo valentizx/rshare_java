@@ -1,0 +1,92 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.rex.sdk" >
+    <application>
+        <!--QQ-->
+        <activity
+            android:name=".qq.RQqActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"
+            >
+
+        </activity>
+        <activity
+            android:name=".qq.RQZoneActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"/>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1106479589" />
+            </intent-filter>
+        </activity>
+        <!--Sina-->
+        <activity
+            android:name=".sina.RSinaWeiboActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"
+            >
+
+        </activity>
+        <activity
+            android:name=".sina.RSinaWeiboStoryActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"
+            >
+
+        </activity>
+        <!--Facebook-->
+        <activity
+            android:name="me.rex.sdk.facebook.RFacebookActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"
+            >
+        </activity>
+
+        <!--Twitter-->
+        <activity
+            android:name="me.rex.sdk.twitter.RTwitterAuthActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"
+            >
+
+        </activity>
+        <receiver
+            android:name=".twitter.RTwitterTweetResultReciver"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS"/>
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE"/>
+                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL"/>
+            </intent-filter>
+
+        </receiver>
+        <!--Instagram-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <!--Tumblr-->
+        <activity
+            android:name=".tumblr.RTumblrActivity"
+            android:theme="@style/AppTheme.Fullscreen.Translucent"
+            >
+
+        </activity>
+        <activity
+            android:name="com.flurry.android.FlurryShareActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+
+    </application>
+</manifest>

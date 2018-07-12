@@ -1,0 +1,32 @@
+<Platform>
+
+    <Twitter
+        ConsumerKey="cA72pVIFxOOWWfT8t9sFLcNUS"
+        ConsumerSecret="Rc9ornOaSWTFYqFzxDIEtIcsaWoxRcVGJs6U71kAjhHcGHyEZi"
+    />
+    <Facebook
+        AppID="221557801765009"
+        AppSecret="b19937f6e91dc93309903e42dd41cb09"
+    />
+    <WeChat
+        AppId="wxd471bcf3a21c7c4a"
+        AppSecret="f71570ef272a5a6699decb264be9cdbb"
+    />
+    <Sina
+        AppKey="3026908911"
+        AppSecret="91fbafc7be7510c0ac5d73883c655db1"
+        RedirectUrl="https://api.weibo.com/oauth2/default.html"
+        Scope="all"
+    />
+    <QQ
+        AppID="1106479589"
+        AppSecret="GPNYj2sKOreyvNKj"
+        />
+    <!--// VW35CX3T8R5JGRMCQFN2-->
+    <Tumblr
+        ConsumerKey="j8f6rocxuAOZUSmczCtjoTGqpYkFIalcLvHAk1xnNkQiDDNLtH"
+        ConsumerSecret="pxPfnQnR5HX7z2wjXKcVgqYDbSsS3OykaYSTn6MbKXAUna1Tfb"
+        FlurryKey="D2K3KT94CMV8GT9YXY2T"
+    />
+
+</Platform>
