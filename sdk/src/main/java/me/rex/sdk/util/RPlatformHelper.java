@@ -215,6 +215,8 @@ final public class RPlatformHelper {
             packageName = "com.sina.weibo";
         } else if (platform == RSharePlatform.Platform.Instagram) {
             packageName = "com.instagram.android";
+        } else if(platform == RSharePlatform.Platform.Line) {
+            packageName = "jp.naver.line.android";
         } else {
             return false;
         }

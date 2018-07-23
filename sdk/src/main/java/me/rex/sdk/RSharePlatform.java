@@ -12,7 +12,8 @@ final public class RSharePlatform {
         Tumblr,
         GooglePlus,
         WhatsApp,
-        Instagram
+        Instagram,
+        Line
 
     }
 }

@@ -24,6 +24,7 @@ import me.rex.sdk.RSharePlatform;
 import me.rex.sdk.facebook.RFacebookManager;
 import me.rex.sdk.googleplus.RGooglePlusManager;
 import me.rex.sdk.instagram.RInstagramManager;
+import me.rex.sdk.line.RLineManager;
 import me.rex.sdk.qq.RQqManager;
 import me.rex.sdk.sina.RSinaWeiboManager;
 import me.rex.sdk.tumblr.RTumblrManager;
@@ -336,6 +337,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tmb_text_btn:
                 RTumblrManager.getInstance().shareText(this, mDescription, mTitle,
                         mWebapgeUrl, mListener);
+                break;
+            case R.id.l_img_btn:
+                RLineManager.getInstance().shareImage(this, mPhoto);
+                break;
+            case R.id.l_text_btn:
+                RLineManager.getInstance().shareText(this, mDescription);
                 break;
 
             default:break;

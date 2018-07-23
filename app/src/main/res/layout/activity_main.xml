@@ -421,6 +421,28 @@
             android:onClick="share"
             android:text="Tumblr文"
             />
+        <Button
+            android:id="@+id/l_text_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="share"
+            android:text="Line文"
+            />
+        <Button
+            android:id="@+id/l_img_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="share"
+            android:text="Line图"
+            />
 
 
     </LinearLayout>
