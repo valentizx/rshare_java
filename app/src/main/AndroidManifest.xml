@@ -51,6 +51,8 @@
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
             android:theme="@style/AppTheme.Fullscreen.Translucent"/>
+        <!--Pinterest-->
+
 
 
     </application>

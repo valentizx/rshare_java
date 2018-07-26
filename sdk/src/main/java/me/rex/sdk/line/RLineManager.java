@@ -11,7 +11,7 @@ import me.rex.sdk.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 import me.rex.sdk.util.RPlatformHelper;
 
-public class RLineManager extends RShare {
+final public class RLineManager extends RShare {
     private final String TAG = "RInstagramManager===>";
 
     private static RLineManager mManager;

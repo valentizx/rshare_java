@@ -163,6 +163,17 @@ final public class RPlatformHelper {
         return te.getAttribute("FlurryKey");
     }
 
+    /**
+     * 获取 Pinterest App ID.
+     * */
+    public static String getPinterestAppId(Context context) {
+
+        InputStream inputStream = getInputStream(context);
+        Element te = getRootElement("Pinterest", inputStream);
+
+        return te.getAttribute("AppId");
+    }
+
 
 
     /***/
@@ -217,6 +228,8 @@ final public class RPlatformHelper {
             packageName = "com.instagram.android";
         } else if(platform == RSharePlatform.Platform.Line) {
             packageName = "jp.naver.line.android";
+        } else if(platform == RSharePlatform.Platform.Pinterest) {
+            packageName = "com.pinterest";
         } else {
             return false;
         }

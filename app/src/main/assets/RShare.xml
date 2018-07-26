@@ -28,5 +28,9 @@
         ConsumerSecret="pxPfnQnR5HX7z2wjXKcVgqYDbSsS3OykaYSTn6MbKXAUna1Tfb"
         FlurryKey="D2K3KT94CMV8GT9YXY2T"
     />
+    <Pinterest
+        AppId="4979706154532747851"
+        AppSecret=""
+    />
 
 </Platform>

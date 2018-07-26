@@ -25,6 +25,7 @@ import me.rex.sdk.facebook.RFacebookManager;
 import me.rex.sdk.googleplus.RGooglePlusManager;
 import me.rex.sdk.instagram.RInstagramManager;
 import me.rex.sdk.line.RLineManager;
+import me.rex.sdk.pinterest.RPinterestManager;
 import me.rex.sdk.qq.RQqManager;
 import me.rex.sdk.sina.RSinaWeiboManager;
 import me.rex.sdk.tumblr.RTumblrManager;
@@ -43,16 +44,6 @@ public class MainActivity extends AppCompatActivity {
     Bitmap mPhoto;
     Bitmap mPhoto2;
 
-
-    Bitmap mPhoto3;
-    Bitmap mPhoto4;
-    Bitmap mPhoto5;
-    Bitmap mPhoto6;
-    Bitmap mPhoto7;
-    Bitmap mPhoto8;
-    Bitmap mPhoto9;
-    Bitmap mPhoto10;
-    Bitmap mPhoto11;
 
     final String mWebapgeUrl = "https://www.nytimes.com/2018/05/04/arts/music/playlist-christina-aguilera-kanye-west-travis-scott-dirty-projectors.html";
     final String mDescription = "流行天后 Christina Aguilera 时隔六年回归全新录音室专辑「Liberation」于 2018 年 6 月 15 日发布.";
@@ -99,26 +90,6 @@ public class MainActivity extends AppCompatActivity {
         mPhoto2 = BitmapFactory.decodeResource(this.getApplicationContext()
                 .getResources(), R.drawable.test2);
 
-
-
-        mPhoto3 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover1);
-        mPhoto4 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover2);
-        mPhoto5 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover3);
-        mPhoto6 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover4);
-        mPhoto7 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover5);
-        mPhoto8 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover6);
-        mPhoto9 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover7);
-        mPhoto10 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover8);
-        mPhoto11 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.cover9);
 
 
         Log.v(TAG, getFilesDir().getAbsolutePath());
@@ -272,12 +243,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.wb_img_btn:
                 ArrayList<Bitmap> photos2 = new ArrayList<Bitmap>();
-                photos2.add(mPhoto3);
-//                photos2.add(mPhoto4);
-//                photos2.add(mPhoto5);
-//                photos2.add(mPhoto6);
-//                photos2.add(mPhoto7);
-//                photos2.add(mPhoto8);
+                photos2.add(mPhoto);
+
                 RSinaWeiboManager.getInstance().sharePhoto(this, photos2, mDescription, true,
                         mListener
                 );
@@ -316,8 +283,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.qz_imgs_btn:
                 ArrayList<Bitmap> localePhotos = new ArrayList<Bitmap>();
                 localePhotos.add(mPhoto);
-                localePhotos.add(mPhoto2);
-                localePhotos.add(mPhoto3);
+
                 RQqManager.getInstance().publishImagesToZone(this, localePhotos, mDescription, mListener);
                 break;
             case R.id.qz_video_btn:
@@ -343,6 +309,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.l_text_btn:
                 RLineManager.getInstance().shareText(this, mDescription);
+                break;
+            case R.id.pin_img_btn:
+                RPinterestManager.getInstance().shareImage(this, mThumbImage);
                 break;
 
             default:break;
