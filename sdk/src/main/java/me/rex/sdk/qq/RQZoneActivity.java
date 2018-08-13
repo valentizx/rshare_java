@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.annotation.Nullable;
 
 import com.tencent.connect.common.Constants;
@@ -12,9 +11,9 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RShareListener;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 import me.rex.sdk.util.RPlatformHelper;
 import me.rex.sdk.util.RThreadManager;

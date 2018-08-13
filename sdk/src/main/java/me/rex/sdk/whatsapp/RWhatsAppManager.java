@@ -3,13 +3,12 @@ package me.rex.sdk.whatsapp;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 import me.rex.sdk.util.RPlatformHelper;
 

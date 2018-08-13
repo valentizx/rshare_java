@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.util.Log;
 
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RPlatformHelper;
 
 
@@ -27,13 +27,6 @@ public final class RPinterestManager extends RShare {
             }
         }
         return mManager;
-    }
-
-    private void sdkInitialize(Context context) {
-        String appId = RPlatformHelper.getPinterestAppId(context);
-//        PDKClient.configureInstance(context, appId);
-//        PDKClient.getInstance().onConnect(context);
-
     }
 
     public void shareImage(Context context,

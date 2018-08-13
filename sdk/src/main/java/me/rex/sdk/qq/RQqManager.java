@@ -4,22 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 
-import com.facebook.share.Share;
-
 import java.util.ArrayList;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RShareListener;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 import me.rex.sdk.util.RPlatformHelper;
-import me.rex.sdk.util.RUtil;
 
 
 /**

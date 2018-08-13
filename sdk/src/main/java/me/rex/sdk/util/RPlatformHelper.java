@@ -16,7 +16,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RSharePlatform;
 
 final public class RPlatformHelper {
 

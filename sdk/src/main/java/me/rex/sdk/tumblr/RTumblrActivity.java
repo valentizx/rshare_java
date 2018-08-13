@@ -13,9 +13,9 @@ import com.flurry.android.tumblr.Post;
 import com.flurry.android.tumblr.PostListener;
 import com.flurry.android.tumblr.TumblrShare;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RShareListener;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RPlatformHelper;
 
 final public class RTumblrActivity extends Activity {

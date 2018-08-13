@@ -11,9 +11,9 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RShareListener;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 import me.rex.sdk.util.RPlatformHelper;
 import me.rex.sdk.util.RThreadManager;

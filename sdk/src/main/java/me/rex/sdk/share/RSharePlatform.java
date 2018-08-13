@@ -1,4 +1,4 @@
-package me.rex.sdk;
+package me.rex.sdk.share;
 
 final public class RSharePlatform {
 

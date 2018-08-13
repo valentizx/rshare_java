@@ -85,6 +85,7 @@ final public class RQqHelper {
     }
 
     protected Bundle getQZoneImageParams() {
+
         Bundle params = new Bundle();
         params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE, QzonePublish.PUBLISH_TO_QZONE_TYPE_PUBLISHMOOD);
         params.putString(QzonePublish.PUBLISH_TO_QZONE_SUMMARY, mIntent.getStringExtra("description"));

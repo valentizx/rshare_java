@@ -6,8 +6,8 @@ import android.content.Intent;
 
 import com.twitter.sdk.android.tweetcomposer.TweetUploadService;
 
-import me.rex.sdk.RShareListener;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 
 final public class RTwitterTweetResultReciver extends BroadcastReceiver {

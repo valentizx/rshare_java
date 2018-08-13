@@ -15,8 +15,8 @@ import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.model.ShareVideoContent;
 import com.facebook.share.widget.ShareDialog;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.util.RFileHelper;
 
 final public class RFacebookActivity extends Activity {

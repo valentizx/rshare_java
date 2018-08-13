@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RShareListener;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RShareListener;
 
 /**
  * Tumblr <a href=https://developer.yahoo.com/flurry/docs/tumblrsharing/android/> Tumblr SDK </a>

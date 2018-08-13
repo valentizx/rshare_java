@@ -1,4 +1,4 @@
-package me.rex.sdk;
+package me.rex.sdk.share;
 
 public class RShare {
 
@@ -21,6 +21,7 @@ public class RShare {
          * 默认的分享方式
          * Facebook: 优先客户端分享, 客户端无法分享会转由网页形式分享.
          * Twitter: 优先应用内分享.
+         * Instagram: 默认客户端分享.
          * */
         Automatic,
         /**

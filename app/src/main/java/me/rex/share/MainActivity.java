@@ -18,9 +18,9 @@ import java.io.File;
 import java.util.ArrayList;
 
 
-import me.rex.sdk.RShare;
-import me.rex.sdk.RShareListener;
-import me.rex.sdk.RSharePlatform;
+import me.rex.sdk.share.RShare;
+import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.facebook.RFacebookManager;
 import me.rex.sdk.googleplus.RGooglePlusManager;
 import me.rex.sdk.instagram.RInstagramManager;

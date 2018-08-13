@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 
 import com.google.android.gms.plus.PlusShare;
 
-import me.rex.sdk.RShare;
+import me.rex.sdk.share.RShare;
 /**
  * Google + <a href=https://developers.google.com/+/mobile/android/share/>Android 版</a>
  * */
