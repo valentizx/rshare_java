@@ -1,6 +1,7 @@
 package me.rex.share;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,8 +19,10 @@ import java.io.File;
 import java.util.ArrayList;
 
 
+import me.rex.sdk.share.RImageContent;
 import me.rex.sdk.share.RShare;
 import me.rex.sdk.share.RShareListener;
+import me.rex.sdk.share.RShareManager;
 import me.rex.sdk.share.RSharePlatform;
 import me.rex.sdk.facebook.RFacebookManager;
 import me.rex.sdk.googleplus.RGooglePlusManager;
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     final String mAudioStreamUrl = "http://10.136.9.109/fcgi-bin/fcg_music_get_playurl.fcg?song_id=1234&redirect=0&filetype=mp3&qqmusic_fromtag=15&app_id=100311325&app_key=b233c8c2c8a0fbee4f83781b4a04c595&device_id=1234";
     final String mVideoUrl = "https://www.youtube.com/watch?v=DSRSgMp5X1w";
 
-    final String mThumbImage = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531109590197&di=2b9ec95e4be16190dae92584ff3eddec&imgtype=0&src=http%3A%2F%2Fwx2.sinaimg.cn%2Flarge%2F005tHdq6ly1froj3xktu5j30uv0uvtb4.jpg";
+    final String mThumbImage = "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1509086430,2757737602&fm=11&gp=0.jpg";
 
     final RShareListener mListener = new RShareListener() {
         @Override
@@ -86,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mPhoto = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.test);
+                .getResources(), R.drawable.c);
         mPhoto2 = BitmapFactory.decodeResource(this.getApplicationContext()
-                .getResources(), R.drawable.test2);
+                .getResources(), R.drawable.c_1);
 
 
 
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         mImagePathList = new ArrayList<String>();
 
-        mImagePathList.add("http://c.hiphotos.baidu.com/baike/pic/item/11385343fbf2b211e9815502cf8065380dd78ecb.jpg");
+        mImagePathList.add(mThumbImage);
         //mImagePathList.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/cover1.jpg")));
         mImagePathList.add("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1657378823,3340694539&fm=27&gp=0.jpg");
         mImagePathList.add("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3289990191,2537468963&fm=27&gp=0.jpg");
@@ -109,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
 //        mImageUris.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/cover8.jpg")));
 //        mImageUris.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/cover8.jpg")));
 //        mImageUris.add(Uri.fromFile(new File(getExternalFilesDir(null)+"/cover8.jpg")));
+
+
+
 
     }
 
@@ -139,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (flag.equals("SINA")) {
                     RSinaWeiboManager.getInstance().shareLocalVideo(this, uri, mDescription,
-                            false , mListener);
+                            true , mListener);
                 }
 
 
@@ -163,7 +169,8 @@ public class MainActivity extends AppCompatActivity {
         switch (btn.getId()) {
             case R.id.fb_wb_btn:
                 RFacebookManager.getInstance().shareWebpage(this, mWebapgeUrl, mDescription,
-                        mHashTag, RShare.Mode.Native ,mListener);
+                        mHashTag, RShare.Mode.Feed
+                        ,mListener);
                 break;
             case R.id.fb_ph_btn:
 
@@ -184,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tw_app_btn:
                 RTwitterManager.getInstance().share(this, mWebapgeUrl, mDescription, mPhoto,
-                        null, RShare.Mode.Automatic, mListener);
+                        mHashTag, RShare.Mode.Automatic, mListener);
 
                 break;
             case R.id.tw_inner_btn:
@@ -192,10 +199,10 @@ public class MainActivity extends AppCompatActivity {
                         null, RShare.Mode.Native, mListener);
                 break;
             case R.id.ins_app_btn:
-                RInstagramManager.getInstance().shareImage(this, mPhoto, RShare.Mode.Native);
+                RInstagramManager.getInstance().shareImage(this, mPhoto);
                 break;
             case R.id.ins_sys_btn:
-                RInstagramManager.getInstance().shareImage(this, mPhoto, RShare.Mode.System);
+                RInstagramManager.getInstance().shareImage(this, mPhoto);
                 break;
 
             case R.id.ins_vid_btn:
@@ -213,12 +220,12 @@ public class MainActivity extends AppCompatActivity {
                         .TargetScene.Session, mListener);
                 break;
             case R.id.wx_img_btn:
-                RWechatManager.getInstance().shareImage(this, mPhoto, RWechatManager.TargetScene
+                RWechatManager.getInstance().shareImage(this, mPhoto2, RWechatManager.TargetScene
                         .Session, mListener);
                 break;
             case R.id.wx_web_btn:
                 RWechatManager.getInstance().shareWebpage(this, mWebapgeUrl, mTitle,
-                        mDescription, mPhoto,RWechatManager.TargetScene.Session, mListener);
+                        mDescription, mPhoto2,RWechatManager.TargetScene.Session, mListener);
                 break;
             case R.id.wx_music_btn:
                 RWechatManager.getInstance().shareMusic(this, mAudioStreamUrl, mTitle,
@@ -245,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Bitmap> photos2 = new ArrayList<Bitmap>();
                 photos2.add(mPhoto);
 
-                RSinaWeiboManager.getInstance().sharePhoto(this, photos2, mDescription, true,
+                RSinaWeiboManager.getInstance().sharePhoto(this, photos2, mDescription, false,
                         mListener
                 );
 
@@ -253,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.wb_web_btn:
                 RSinaWeiboManager.getInstance().shareWebpage(this, mWebapgeUrl, mTitle,
                         mDescription,
-                        mPhoto,
+                        mPhoto2,
                         mListener);
                 break;
             case R.id.wb_vd_btn:

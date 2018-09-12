@@ -51,7 +51,7 @@ final public class RInstagramManager extends RShare {
         context.startActivity(intent);
     }
 
-    public void shareImage(Context context, Bitmap image, Mode mode) {
+    public void shareImage(Context context, Bitmap image) {
 
         if (!RPlatformHelper.isInstalled(context, RSharePlatform.Platform.Instagram)) {
             Log.e(TAG, "Instagram 未安装");
@@ -59,51 +59,51 @@ final public class RInstagramManager extends RShare {
         }
         RFileHelper.deleteExternalShareDirectory(context);
         RFileHelper.saveBitmapToExternalSharePath(context, image);
+//        /**
+//         *
+//         * 系统分享.
+//         * **/
+//        if (mode == Mode.System) {
+//
+//            Uri imageUri;
+//            /**
+//             *
+//             * Android 7.0 以后更改了获取文件的 Uri 策略, 使用 FileProvider 来获取文件的 Uri.
+//             * **/
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                String authority = context.getPackageName() + ".fileprovider";
+//                imageUri = FileProvider.getUriForFile(
+//                        context,
+//                        authority,
+//                        RFileHelper.getExternalSharePathFiles(context).get(0));
+//            } else {
+//
+//                /**
+//                 * Android 7.0 之前获取文件 Uri 的方法.
+//                 * **/
+//                imageUri = RFileHelper.getExternalSharePathFileUris(context).get(0);
+//            }
+//            Intent intent = new Intent(Intent.ACTION_SEND);
+//            intent.setType("image/jpeg");
+//            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//            intent.putExtra(Intent.EXTRA_STREAM, imageUri );
+//            context.startActivity(Intent.createChooser(intent, "分享"));
+//
+//
+//        } else {
+
+        RFileHelper.detectFileUriExposure();
         /**
          *
-         * 系统分享.
-         * **/
-        if (mode == Mode.System) {
+         * 直接启动 Instagram 客户端分享.
+         * */
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("image/*");
 
-            Uri imageUri;
-            /**
-             *
-             * Android 7.0 以后更改了获取文件的 Uri 策略, 使用 FileProvider 来获取文件的 Uri.
-             * **/
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                String authority = context.getPackageName() + ".fileprovider";
-                imageUri = FileProvider.getUriForFile(
-                        context,
-                        authority,
-                        RFileHelper.getExternalSharePathFiles(context).get(0));
-            } else {
-
-                /**
-                 * Android 7.0 之前获取文件 Uri 的方法.
-                 * **/
-                imageUri = RFileHelper.getExternalSharePathFileUris(context).get(0);
-            }
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("image/jpeg");
-            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            intent.putExtra(Intent.EXTRA_STREAM, imageUri );
-            context.startActivity(Intent.createChooser(intent, "分享"));
-
-
-        } else {
-
-            RFileHelper.detectFileUriExposure();
-            /**
-             *
-             * 直接启动 Instagram 客户端分享.
-             * */
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("image/*");
-
-            Uri uri = RFileHelper.getExternalSharePathFileUris(context).get(0);
-            intent.putExtra(Intent.EXTRA_STREAM,uri);
-            intent.setPackage("com.instagram.android");
-            context.startActivity(intent);
-        }
+        Uri uri = RFileHelper.getExternalSharePathFileUris(context).get(0);
+        intent.putExtra(Intent.EXTRA_STREAM,uri);
+        intent.setPackage("com.instagram.android");
+        context.startActivity(intent);
+       // }
     }
 }

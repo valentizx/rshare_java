@@ -35,8 +35,7 @@ public final class RShareManager {
         SinaWeibo,
         SinaWeiboStory,
         Line,
-        InstagramSystem,
-        InstagramClient,
+        Instagram,
         Tumblr,
         Pinterest,
         GooglePlus,
@@ -98,10 +97,8 @@ public final class RShareManager {
             RSinaWeiboManager.getInstance().sharePhoto(context, img, content.getQuote(), true, listener);
         } else if (channel == ShareChannel.Line) {
             RLineManager.getInstance().shareImage(context, content.getImage());
-        } else if (channel == ShareChannel.InstagramSystem) {
-            RInstagramManager.getInstance().shareImage(context, content.getImage(), RShare.Mode.System);
-        } else if (channel == ShareChannel.InstagramClient) {
-            RInstagramManager.getInstance().shareImage(context, content.getImage(), RShare.Mode.Automatic);
+        } else if (channel == ShareChannel.Instagram) {
+            RInstagramManager.getInstance().shareImage(context, content.getImage());
         } else if (channel == ShareChannel.Tumblr) {
             if (!content.getImageUrl().isEmpty()) {
                 RTumblrManager.getInstance().shareImage(context, content.getImageUrl(), content
@@ -176,7 +173,7 @@ public final class RShareManager {
         } else if (channel == ShareChannel.SinaWeiboStory) {
             RSinaWeiboManager.getInstance().shareLocalVideo(context, content.getLocalVideoUrl(),
                     content.getQuote(), true, listener);
-        } else if (channel == ShareChannel.InstagramSystem || channel == ShareChannel.InstagramClient) {
+        } else if (channel == ShareChannel.Instagram) {
             RInstagramManager.getInstance().shareVideo(context, content.getLocalVideoUrl());
         } else {
             Log.e(TAG , "该种方式不支持视频分享");
